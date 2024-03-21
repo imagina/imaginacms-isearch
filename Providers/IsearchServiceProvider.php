@@ -29,14 +29,16 @@ class IsearchServiceProvider extends ServiceProvider
         $this->registerBindings();
     }
 
-    public function boot()
-    {
-        $this->publishConfig('isearch', 'config');
-        $this->mergeConfigFrom($this->getModuleConfigFilePath('isearch', 'settings'), 'asgard.isearch.settings');
-        $this->mergeConfigFrom($this->getModuleConfigFilePath('isearch', 'settings-fields'), 'asgard.isearch.settings-fields');
-        $this->mergeConfigFrom($this->getModuleConfigFilePath('isearch', 'permissions'), 'asgard.isearch.permissions');
-        $this->registerComponentsLivewire();
-    }
+  public function boot()
+  {
+
+    $this->publishConfig('isearch', 'config');
+    $this->mergeConfigFrom($this->getModuleConfigFilePath('isearch', 'settings'), "asgard.isearch.settings");
+    $this->mergeConfigFrom($this->getModuleConfigFilePath('isearch', 'settings-fields'), "asgard.isearch.settings-fields");
+    $this->mergeConfigFrom($this->getModuleConfigFilePath('isearch', 'permissions'), "asgard.isearch.permissions");
+    $this->mergeConfigFrom($this->getModuleConfigFilePath('isearch', 'blocks'), "asgard.isearch.blocks");
+    $this->registerComponentsLivewire();
+  }
 
     /**
      * Get the services provided by the provider.

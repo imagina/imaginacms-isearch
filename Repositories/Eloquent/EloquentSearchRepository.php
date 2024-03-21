@@ -159,8 +159,10 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
             $filter->repositories = array_column($repositoriesData, 'value');
         }
 
-        //Delete option "all" from array
-        $pos = array_search('all', $filter->repositories);
+
+      //Delete option "all" from array
+      $pos = array_search("all", $filter->repositories);
+      if($pos)
         unset($filter->repositories[$pos]);
 
         ! is_array($filter->repositories) ? $filter->repositories = [$filter->repositories] : false;
